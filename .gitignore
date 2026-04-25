@@ -1,0 +1,13 @@
+# Segredos e dados pessoais — NUNCA commitar
+.env
+hermes-data/
+workspace/
+
+# Mantém as pastas no repo, mas vazias (com README dentro)
+!hermes-data/README_HERMES_DATA.txt
+!workspace/README_WORKSPACE.txt
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,34 @@
+services:
+  hermes:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-agent
+    restart: unless-stopped
+    command: ["gateway", "run"]
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      - HERMES_UID=${HERMES_UID:-1000}
+      - HERMES_GID=${HERMES_GID:-1000}
+    volumes:
+      # Estado completo do Hermes: config, memória, sessões, skills e segredos.
+      - ./hermes-data:/opt/data
+
+      # Pasta de trabalho que você permite o agente acessar (opcional).
+      - ./workspace:/workspace
+    network_mode: host
+
+  # Dashboard opcional.
+  # Para ativar, remova os comentários abaixo.
+  # Nota: network_mode: host não permite depends_on, então suba após o hermes.
+  #
+  # dashboard:
+  #   image: nousresearch/hermes-agent:latest
+  #   container_name: hermes-dashboard
+  #   restart: unless-stopped
+  #   command: dashboard --host 0.0.0.0
+  #   volumes:
+  #     - ./hermes-data:/opt/data
+  #   environment:
+  #     - GATEWAY_HEALTH_URL=http://localhost:8642
+  #   network_mode: host
