@@ -13,7 +13,7 @@
 
 ---
 
-Este pacote é o caminho correto para o que você descreveu:
+Este pacote é o caminho correto:
 
 ```text
 Seu PC Windows 11
