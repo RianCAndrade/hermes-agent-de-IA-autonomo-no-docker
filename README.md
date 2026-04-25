@@ -27,7 +27,7 @@ Gateway do Hermes
 Telegram / Discord / WhatsApp etc.
 ```
 
-A ideia é rodar o **Hermes Agent oficial dentro do Docker**, sem bot Python intermediário.
+A ideia é rodar o **Hermes Agent oficial dentro do Docker**
 
 ---
 
